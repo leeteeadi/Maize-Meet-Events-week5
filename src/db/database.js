@@ -55,7 +55,6 @@ export async function initializeDatabase() {
     );
   `);
 
-await db.runAsync('DELETE FROM events');
 
 const existingEvent = await db.getFirstAsync(
   'SELECT id FROM events LIMIT 1'
