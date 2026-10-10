@@ -21,7 +21,7 @@ export function AppContextProvider({ children, initialSession }) {
   async function toggleSaved(eventId) {
     const isSaved = await toggleSavedEvent(eventId);
     setSavedEventIds((current) =>
-      isSaved ? [...current, eventId] : current.filter((id) => id !== eventId)
+      isSaved ? [...new Set([...current, eventId])] : current.filter((id) => id !== eventId)
     );
     return isSaved;
   }
